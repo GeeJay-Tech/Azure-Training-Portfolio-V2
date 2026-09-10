@@ -61,3 +61,15 @@ A monitoring and alerting solution designed to proactively identify and respond 
 Projects completed as part of practical preparation for:
 
 - AZ-104: Microsoft Azure Administrator
+
+## Training & Certification Progress
+
+- ✅ AZ-104 Training Course - Completed September 2026
+- ✅ Certificate of Completion - The Knowledge Academy
+- 🛠️ Hands-on Azure projects - Ongoing
+- 📚 AZ-104 revision and practice exams - In Progress
+- 🎯 Microsoft AZ-104 Certification Exam - Preparing
+
+[View AZ-104 Training Certificate](Certificates/README.md)
+
+> The certificate is a course completion certificate issued by The Knowledge Academy and is not the Microsoft Certified: Azure Administrator Associate certification.
