@@ -29,6 +29,21 @@ BrightPath Solutions required an automated backup and recovery solution to prote
 
 ---
 
+### Project 3 - Monitoring and Alerting System
+
+A monitoring and alerting solution designed to proactively identify and respond to issues affecting Azure resources.
+
+**Skills Demonstrated**
+- Azure Monitor
+- Azure Metrics
+- Alert Rules
+- Action Groups
+- Email Notifications
+- Resource Monitoring and Troubleshooting
+- Reporting and Documentation
+
+---
+
 ## Technologies Used
 
 - Microsoft Azure
@@ -36,6 +51,8 @@ BrightPath Solutions required an automated backup and recovery solution to prote
 - Azure Backup
 - Recovery Services Vault
 - Azure Monitor
+- Azure Alerts
+- Azure Action Groups
 - Azure Cost Management
 - GitHub
 
