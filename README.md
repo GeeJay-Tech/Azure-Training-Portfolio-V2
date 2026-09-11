@@ -44,6 +44,22 @@ A monitoring and alerting solution designed to proactively identify and respond 
 
 ---
 
+### Project 4 - Azure Identity Governance
+
+Implemented identity and governance controls to manage access, enforce organisational policies, and protect Azure resources within the BrightPath Solutions environment.
+
+**Skills Demonstrated**
+- Microsoft Entra ID User Management
+- Azure Role-Based Access Control (RBAC)
+- RBAC Scope and Inheritance
+- Principle of Least Privilege
+- Azure Policy
+- Policy Enforcement and Validation
+- Azure Resource Locks
+- Azure Governance
+
+---
+
 ## Technologies Used
 
 - Microsoft Azure
@@ -54,6 +70,10 @@ A monitoring and alerting solution designed to proactively identify and respond 
 - Azure Alerts
 - Azure Action Groups
 - Azure Cost Management
+- Microsoft Entra ID
+- Azure Role-Based Access Control (RBAC)
+- Azure Policy
+- Azure Resource Locks
 - GitHub
 
 ## Certification Alignment
