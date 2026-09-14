@@ -60,6 +60,24 @@ Implemented identity and governance controls to manage access, enforce organisat
 
 ---
 
+### Project 5 - Azure Virtual Networking
+
+Designed and configured an Azure virtual networking environment for BrightPath Solutions, including VNets, subnets, Network Security Groups (NSGs), private IP communication, VNet peering, and connectivity testing.
+
+**Skills Demonstrated**
+- Azure Virtual Networks (VNets)
+- Subnetting and IP Addressing
+- Network Security Groups (NSGs)
+- NSG Rule Priority and Traffic Filtering
+- Private IP Connectivity
+- VNet Peering
+- Azure Routing and User-Defined Routes (UDRs)
+- DNS and Name Resolution
+- Service Endpoints and Private Endpoints
+- NAT Gateway
+
+---
+
 ## Technologies Used
 
 - Microsoft Azure
