@@ -76,6 +76,26 @@ Designed and configured an Azure virtual networking environment for BrightPath S
 - Service Endpoints and Private Endpoints
 - NAT Gateway
 
+- ---
+
+### Project 6 – Azure Storage
+
+Deployed and configured an Azure Storage environment for BrightPath Solutions, including Blob Storage, Azure Files, secure data access, data protection, and automated lifecycle management.
+
+**Skills Demonstrated**
+- Azure Storage Accounts
+- Blob Storage and Containers
+- Azure Files
+- Storage Redundancy (LRS, ZRS, GRS, GZRS)
+- Blob Access Tiers
+- Microsoft Entra ID and Storage RBAC
+- Management Plane vs Data Plane Permissions
+- Shared Access Signatures (SAS)
+- Blob Soft Delete and Versioning
+- Secure Transfer and TLS
+- Storage Encryption
+- Lifecycle Management
+
 ---
 
 ## Technologies Used
