@@ -29,7 +29,7 @@ BrightPath Solutions required an automated backup and recovery solution to prote
 - Disaster Recovery
 - Business Continuity Planning
 
-📁 [View Project 02 - Automated Backup System](./Project%2002%20-%20Automated%20Backup%20Sytem)
+📁 [View Project 02 - Automated Backup System](./Project%2002%20-%20Automated%20Backup%20System)
 
 ---
 
