@@ -1,194 +1,165 @@
-# Project 07 - Azure Compute and VM Management
+# Azure Administration Portfolio
 
-## Project Overview
+This repository contains hands-on Azure projects completed to demonstrate Azure Administration (AZ-104) skills and practical cloud engineering experience.
 
-In this project, I worked as a Junior Cloud Administrator for BrightPath Solutions to deploy and manage an Azure Windows virtual machine.
+## Projects
 
-The project focused on core Azure compute administration tasks including virtual machine deployment, managed disks, VM resizing, availability concepts, scaling and post-deployment automation using VM extensions.
+### Project 1 - Azure Cost Visibility Dashboard
 
-## Objectives
+A monitoring and reporting solution designed to improve visibility of Azure resource costs and usage.
 
-- Deploy and configure an Azure Windows virtual machine
-- Understand Azure VM availability options
-- Understand VM scaling and Virtual Machine Scale Sets
-- Attach and configure an Azure managed data disk
-- Understand different managed disk types
-- Resize an Azure VM to increase CPU and memory
-- Understand Azure Load Balancer and health probes
-- Use Azure Custom Script Extension for post-deployment automation
+**Skills Demonstrated**
+- Azure Monitoring
+- Cost Management
+- Resource Governance
+- Reporting and Documentation
 
-## Resources Created
+📁 [View Project 01 - Cost Visibility Dashboard](./Project%2001%20-%20Cost%20visibility%20dashboard)
 
-- Resource Group: `rg-brightpath-compute`
-- Virtual Machine: `vm-brightpath-app01`
-- Operating System: Windows Server 2025
-- Managed Data Disk: `disk-brightpath-appdata01`
-- Data Volume: `E: AppData`
-- Temporary Azure Storage account and Blob container for the Custom Script Extension
+---
 
-## VM Availability
+### Project 2 - Automated Backup System
 
-I reviewed different Azure options for improving virtual machine availability.
+BrightPath Solutions required an automated backup and recovery solution to protect business-critical workloads hosted in Azure.
 
-### Availability Zones
+**Skills Demonstrated**
+- Azure Backup
+- Recovery Services Vault
+- Virtual Machine Administration
+- Disaster Recovery
+- Business Continuity Planning
 
-Availability Zones are physically separate locations within an Azure region with independent power, cooling and networking.
+📁 [View Project 02 - Automated Backup System](./Project%2002%20-%20Automated%20Backup%20Sytem)
 
-Deploying VMs across multiple Availability Zones can reduce the risk of a single datacenter failure affecting an application.
+---
 
-### Availability Sets
+### Project 3 - Monitoring and Alerting System
 
-Availability Sets distribute VMs across fault domains and update domains.
+A monitoring and alerting solution designed to proactively identify and respond to issues affecting Azure resources.
 
-- Fault domains help protect against underlying hardware failures.
-- Update domains help prevent planned Azure maintenance from affecting all VMs at the same time.
+**Skills Demonstrated**
+- Azure Monitor
+- Azure Metrics
+- Alert Rules
+- Action Groups
+- Email Notifications
+- Resource Monitoring and Troubleshooting
+- Reporting and Documentation
 
-## Scaling
+📁 [View Project 03 - Monitoring and Alerting System](./Project%2003%20-%20Monitoring%20and%20Alerting%20System)
 
-I reviewed vertical and horizontal scaling options for Azure virtual machines.
+---
 
-- Scale up/down changes the CPU and memory resources of an individual VM.
-- Scale out/in changes the number of VM instances.
+### Project 4 - Azure Identity Governance
 
-Virtual Machine Scale Sets can deploy and manage multiple VM instances and support automatic scaling based on demand.
+Implemented identity and governance controls to manage access, enforce organisational policies, and protect Azure resources within the BrightPath Solutions environment.
 
-## VM Resizing
+**Skills Demonstrated**
+- Microsoft Entra ID User Management
+- Azure Role-Based Access Control (RBAC)
+- RBAC Scope and Inheritance
+- Principle of Least Privilege
+- Azure Policy
+- Policy Enforcement and Validation
+- Azure Resource Locks
+- Azure Governance
 
-The development VM was initially deployed with:
+📁 [View Project 04 - Azure Identity Governance](./Project%2004%20-%20Azure%20Identity%20Governance)
 
-- 2 vCPUs
-- 4 GB RAM
+---
 
-The VM was then scaled up to:
+### Project 5 - Azure Virtual Networking
 
-- 4 vCPUs
-- 8 GB RAM
+Designed and configured an Azure virtual networking environment for BrightPath Solutions, including VNets, subnets, Network Security Groups (NSGs), private IP communication, VNet peering, and connectivity testing.
 
-This demonstrated how an existing Azure VM can be resized when additional compute resources are required.
+**Skills Demonstrated**
+- Azure Virtual Networks (VNets)
+- Subnetting and IP Addressing
+- Network Security Groups (NSGs)
+- NSG Rule Priority and Traffic Filtering
+- Private IP Connectivity
+- VNet Peering
+- Azure Routing and User-Defined Routes (UDRs)
+- DNS and Name Resolution
+- Service Endpoints and Private Endpoints
+- NAT Gateway
 
-## Managed Disks
+📁 [View Project 05 - Azure Virtual Networking](./Project%2005%20-%20Azure%20Virtual%20Networking)
 
-A separate managed data disk was attached to the virtual machine.
+- ---
 
-Inside Windows Server, the new disk was:
+### Project 6 – Azure Storage
 
-1. Initialised using GPT
-2. Partitioned
-3. Formatted using NTFS
-4. Assigned the available drive letter `E:`
-5. Labelled `AppData`
+Deployed and configured an Azure Storage environment for BrightPath Solutions, including Blob Storage, Azure Files, secure data access, data protection, and automated lifecycle management.
 
-This demonstrated that attaching a managed disk in Azure is only part of the process. The operating system must also initialise and prepare the disk before it can be used.
+**Skills Demonstrated**
+- Azure Storage Accounts
+- Blob Storage and Containers
+- Azure Files
+- Storage Redundancy (LRS, ZRS, GRS, GZRS)
+- Blob Access Tiers
+- Microsoft Entra ID and Storage RBAC
+- Management Plane vs Data Plane Permissions
+- Shared Access Signatures (SAS)
+- Blob Soft Delete and Versioning
+- Secure Transfer and TLS
+- Storage Encryption
+- Lifecycle Management
 
-I also reviewed common Azure managed disk types:
+📁 [View Project 06 - Azure Storage](./Project%2006%20-%20Azure%20Storage)
 
-- Standard HDD - lower-cost storage for less performance-sensitive workloads
-- Standard SSD - general-purpose workloads
-- Premium SSD - higher-performance production workloads
+---
 
-## VM Storage Types
+## Project 07 - Azure Compute and VM Management
 
-- OS Disk - contains the virtual machine operating system.
-- Data Disk - provides persistent storage for applications and data.
-- Temporary Disk - local temporary storage where data is not guaranteed to persist.
+Deployed and managed an Azure Windows virtual machine for BrightPath Solutions, focusing on core compute administration and post-deployment automation.
 
-## Load Balancing
-
-Azure Load Balancer can distribute network traffic across multiple backend virtual machines.
-
-Health probes monitor backend resources and help prevent traffic from being sent to unhealthy instances.
-
-## VM Extensions and Automation
-
-Azure VM Extensions provide post-deployment configuration and automation capabilities.
-
-For this project, I used the Custom Script Extension to execute a PowerShell script on the Windows VM.
-
-The PowerShell script automatically:
-
-- Created `C:\BrightPath`
-- Created `Extension-Test.txt`
-- Added a test message to the file
-
-The script was stored in a private Azure Blob Storage container and selected during the Custom Script Extension configuration.
-
-After deployment, the extension reported `Provisioning succeeded`, and the generated file was verified inside the Windows VM.
-
-## Implementation Evidence
-
-### 1. Managed Data Disk
-
-I attached a **32 GiB Standard SSD managed data disk** named `disk-brightpath-appdata01` to the virtual machine.
-
-The disk was then initialised using GPT inside Windows Server, formatted with NTFS and configured as the `E:` drive with the label `AppData`.
-
-![Managed Data Disk](01-vm-data-disk.png)
-
-### 2. VM Resize
-
-I scaled up `vm-brightpath-app01` from **2 vCPUs and 4 GB RAM** to **4 vCPUs and 8 GB RAM**.
-
-This demonstrated vertical scaling by increasing the compute resources available to an existing virtual machine.
-
-![VM Resize](02-vm-resize.png)
-
-### 3. Custom Script Extension
-
-I configured the Azure **Custom Script Extension** to run a PowerShell script on the Windows VM.
-
-The extension successfully completed with a `Provisioning succeeded` status, demonstrating how VM extensions can automate post-deployment configuration.
-
-![Custom Script Extension](03-custom-script-extension.png)
-
-### 4. Automated Configuration Result
-
-After the Custom Script Extension completed, I connected to the VM and verified that the PowerShell script had automatically created `C:\BrightPath\Extension-Test.txt`.
-
-The file contained the expected test message, confirming that the automated configuration had executed successfully.
-
-![Extension Result](04-extension-result.png)
-
-## Skills Demonstrated
-
-- Azure Virtual Machines
-- Windows Server Administration
+### Skills Demonstrated
+- Azure Virtual Machine deployment and administration
+- VM sizing and resizing
 - Azure Managed Disks
-- VM Sizing and Resizing
-- Availability Zones
-- Availability Sets
-- Virtual Machine Scale Sets
-- Azure Load Balancer
-- Health Probes
+- Windows disk configuration
+- Availability Zones and Availability Sets
+- Virtual Machine Scale Sets and scaling concepts
+- Azure Load Balancer and health probes
 - Azure VM Extensions
-- PowerShell Automation
-- Azure Blob Storage
-- Azure Portal Administration
+- PowerShell automation
+- Azure Blob Storage integration
 
-## Key Learning Outcomes
+📁 [View Project 07 - Azure Compute and VM Management](./Project%2007%20-%20Azure%20Compute%20and%20VM%20Management)
 
-This project provided hands-on experience with:
+---
 
-- Deploying and managing Azure virtual machines
-- Attaching and configuring managed data disks
-- Preparing Azure data disks inside Windows Server
-- Understanding OS, data and temporary disks
-- Scaling a VM vertically by changing its size
-- Understanding scale up/down compared with scale out/in
-- Understanding Availability Zones and Availability Sets
-- Understanding fault domains and update domains
-- Understanding Azure Load Balancer and health probes
-- Using VM Extensions for post-deployment automation
-- Using PowerShell to automate Windows Server configuration
+## Technologies Used
 
-## AZ-104 Alignment
+- Microsoft Azure
+- Azure Virtual Machines
+- Azure Backup
+- Recovery Services Vault
+- Azure Monitor
+- Azure Alerts
+- Azure Action Groups
+- Azure Cost Management
+- Microsoft Entra ID
+- Azure Role-Based Access Control (RBAC)
+- Azure Policy
+- Azure Resource Locks
+- GitHub
 
-This project supports AZ-104 skills relating to:
+## Certification Alignment
 
-- Create and configure Azure virtual machines
-- Configure Azure VM storage
-- Configure VM sizes
-- Configure availability options
-- Configure Virtual Machine Scale Sets
-- Configure Azure Load Balancer
-- Manage Azure VM Extensions
-- Automate virtual machine configuration
+Projects completed as part of practical preparation for:
+
+- AZ-104: Microsoft Azure Administrator
+
+## Training & Certification Progress
+
+- ✅ AZ-104 Training Course - Completed September 2026
+- ✅ Certificate of Completion - The Knowledge Academy
+- 🛠️ Hands-on Azure projects - Ongoing
+- 📚 AZ-104 revision and practice exams - In Progress
+- 🎯 Microsoft AZ-104 Certification Exam - Preparing
+
+[View AZ-104 Training Certificate](Certificates/README.md)
+
+> The certificate is a course completion certificate issued by The Knowledge Academy and is not the Microsoft Certified: Azure Administrator Associate certification.
