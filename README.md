@@ -29,7 +29,7 @@ BrightPath Solutions required an automated backup and recovery solution to prote
 - Disaster Recovery
 - Business Continuity Planning
 
-📁 [View Project 02 - Automated Backup System](./Project%2002%20-%20Automated%20Backup%20Sytem)
+📁 [View Project 02 - Automated Backup System](./Project%2002%20-%20Automated%20Backup%20System)
 
 ---
 
@@ -86,9 +86,9 @@ Designed and configured an Azure virtual networking environment for BrightPath S
 
 📁 [View Project 05 - Azure Virtual Networking](./Project%2005%20-%20Azure%20Virtual%20Networking)
 
-- ---
+---
 
-### Project 6 – Azure Storage
+### Project 6 - Azure Storage
 
 Deployed and configured an Azure Storage environment for BrightPath Solutions, including Blob Storage, Azure Files, secure data access, data protection, and automated lifecycle management.
 
@@ -110,21 +110,21 @@ Deployed and configured an Azure Storage environment for BrightPath Solutions, i
 
 ---
 
-## Project 07 - Azure Compute and VM Management
+### Project 7 - Azure Compute and VM Management
 
 Deployed and managed an Azure Windows virtual machine for BrightPath Solutions, focusing on core compute administration and post-deployment automation.
 
-### Skills Demonstrated
-- Azure Virtual Machine deployment and administration
-- VM sizing and resizing
+**Skills Demonstrated**
+- Azure Virtual Machine Deployment and Administration
+- VM Sizing and Resizing
 - Azure Managed Disks
-- Windows disk configuration
+- Windows Disk Configuration
 - Availability Zones and Availability Sets
-- Virtual Machine Scale Sets and scaling concepts
-- Azure Load Balancer and health probes
+- Virtual Machine Scale Sets and Scaling Concepts
+- Azure Load Balancer and Health Probes
 - Azure VM Extensions
-- PowerShell automation
-- Azure Blob Storage integration
+- PowerShell Automation
+- Azure Blob Storage Integration
 
 📁 [View Project 07 - Azure Compute and VM Management](./Project%2007%20-%20Azure%20Compute%20and%20VM%20Management)
 
@@ -134,6 +134,14 @@ Deployed and managed an Azure Windows virtual machine for BrightPath Solutions, 
 
 - Microsoft Azure
 - Azure Virtual Machines
+- Azure Managed Disks
+- Azure Virtual Networks (VNets)
+- Azure Network Security Groups (NSGs)
+- VNet Peering
+- Azure Load Balancer
+- Azure Storage
+- Azure Blob Storage
+- Azure Files
 - Azure Backup
 - Recovery Services Vault
 - Azure Monitor
@@ -144,6 +152,8 @@ Deployed and managed an Azure Windows virtual machine for BrightPath Solutions, 
 - Azure Role-Based Access Control (RBAC)
 - Azure Policy
 - Azure Resource Locks
+- Azure VM Extensions
+- PowerShell
 - GitHub
 
 ## Certification Alignment
