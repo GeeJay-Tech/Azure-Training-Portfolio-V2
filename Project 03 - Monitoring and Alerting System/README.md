@@ -1,415 +1,191 @@
-\# Project 3 - Monitoring and Alerting System
+# Project 03 - Monitoring and Alerting System
 
+## Project Overview
 
+This project was completed as part of my Microsoft Azure Administrator (AZ-104) hands-on training.
 
-\## Scenario
+The goal was to implement a monitoring and alerting solution using Azure Monitor to detect performance issues, generate alerts and notify administrators when predefined conditions were met.
 
+## Scenario
 
+BrightPath Solutions has implemented backup protection for critical workloads hosted in Azure.
 
-BrightPath Solutions has implemented backup protection for critical workloads hosted in Azure. To improve operational visibility and reduce response times to service issues, the company requires a monitoring and alerting solution.
+To improve operational visibility and reduce response times to service issues, the company requires a monitoring and alerting solution.
 
+As the Junior Cloud Administrator, I was tasked with implementing Azure monitoring capabilities to track virtual machine performance, generate alerts and support proactive incident management.
 
+## Project Objectives
 
-As a Junior Cloud Administrator, I was tasked with implementing Azure monitoring capabilities to track resource health, generate alerts, and support proactive incident management.
+- Configure Azure Monitor
+- Create an Action Group
+- Configure a metric Alert Rule
+- Monitor virtual machine CPU utilisation
+- Generate and test an alert
+- Configure email notifications
+- Validate the alert lifecycle from Fired to Resolved
+- Document the monitoring solution
 
+## Technologies Used
 
+- Microsoft Azure
+- Azure Monitor
+- Azure Virtual Machines
+- Azure Monitor Action Groups
+- Azure Monitor Metric Alerts
+- Azure Resource Providers
 
-\## Project Objectives
+## Implementation
 
+### 1. Created the Monitoring Resource Group
 
+A dedicated resource group named `rg-brightpath-monitoring` was created to organise the Azure resources used for the monitoring and alerting solution.
 
-\- Configure Azure Monitor
+![Resource Group Created](01-resource-group-created.png)
 
-\- Create Action Groups
+### 2. Deployed the Monitoring Virtual Machine
 
-\- Configure Alert Rules
+The virtual machine `vm-brightpath-monitoring01` was deployed to provide a workload that could be monitored using Azure Monitor.
 
-\- Monitor Virtual Machine health
+The VM was later used to generate CPU activity so that the monitoring and alerting configuration could be tested.
 
-\- Generate and test alerts
+![Virtual Machine Created](02-vm-created.png)
 
-\- Document the monitoring solution
+### 3. Created the Action Group
 
+An Azure Monitor Action Group named `ag-brightpath-monitoring` was configured with an email notification.
 
+The Action Group provides the notification mechanism used when the monitoring alert changes state.
 
-\## Technologies Used
+![Action Group Created](03-action-group-created.png)
 
+### 4. Created the CPU Alert Rule
 
+A metric alert named `alert-vm-high-cpu` was configured to monitor the **Percentage CPU** metric of the BrightPath virtual machine.
 
-\- Microsoft Azure
+For testing purposes, the alert threshold was configured as:
 
-\- Azure Monitor
+- Metric: Percentage CPU
+- Operator: Greater than
+- Threshold: 10%
+- Severity: 3 - Informational
+- Notification: Azure Monitor Action Group
 
-\- Azure Virtual Machines
+The deliberately low threshold made it practical to trigger and validate the alert during the lab.
 
-\- Action Groups
+![CPU Alert Rule Created](04-alert-rule-created.png)
 
-\- Alert Rules
+### 5. Generated CPU Load
 
-\- Activity Log
+PowerShell was used inside the virtual machine to generate CPU activity.
 
+This provided a controlled way to increase CPU utilisation and test whether Azure Monitor would detect the configured threshold condition.
 
+![CPU Load Test](05-cpu-load-test.png)
 
-\## Skills Demonstrated
+### 6. Validated the Triggered Alert
 
+After the CPU threshold was exceeded, Azure Monitor detected the condition and changed `alert-vm-high-cpu` to the **Fired** state.
 
+This confirmed that the metric alert was successfully evaluating the virtual machine's CPU utilisation.
 
-\- Azure Administration (AZ-104)
+![Alert Triggered](06-alert-triggered.png)
 
-\- Monitoring and Alerting
+### 7. Validated the Email Notification
 
-\- Operational Support
+The configured Action Group sent an Azure Monitor email notification confirming that the high-CPU alert had been triggered.
 
-\- Incident Response
+The notification identified the affected virtual machine and showed that the Percentage CPU metric had exceeded the configured 10% threshold.
 
-\- Azure Resource Management
+![Alert Email Notification](07-alert-email-notification.png)
 
+### 8. Validated Alert Resolution
 
+After CPU utilisation returned below the configured threshold, Azure Monitor automatically changed the alert from **Fired** to **Resolved**.
 
-\### Project 3 - Monitoring and Alerting System
+A second email notification confirmed that the alert condition was no longer active, validating the complete monitoring lifecycle.
 
+![Alert Resolved Email](08-alert-resolved-email.png)
 
+## Troubleshooting
 
-Status: In Progress
+### VM Deployment Challenges
 
+During implementation, several virtual machine deployment issues were encountered.
 
+Initial attempts to deploy using some B-series and D-series VM sizes resulted in availability and subscription quota errors.
 
-Skills:
+Errors included:
 
+`NotAvailableForSubscription`
 
+and insufficient family vCPU quota.
 
-\- Azure Monitor
+Investigation showed that some VM families had a subscription quota allocation of **0 of 0 vCPUs**.
 
-\- Alert Rules
+Troubleshooting included:
 
-\- Action Groups
+- Reviewing VM size availability
+- Testing alternative VM families
+- Investigating subscription quota limitations
+- Reviewing Azure quotas under Microsoft.Compute
+- Identifying VM family restrictions
 
-\- Virtual Machine Monitoring
+This demonstrated the importance of checking regional availability and subscription quotas when deploying Azure compute resources.
 
-\- Incident Response
+### Microsoft.Insights Resource Provider
 
+An additional issue occurred when attempting to create the Azure Monitor Action Group.
 
-
-\## Environment Preparation
-
-
-
-A dedicated Resource Group was created to host monitoring and alerting resources for BrightPath Solutions.
-
-
-
-This provides centralized management of monitoring-related components and supports lifecycle management of Azure resources.
-
-
-
-
-
-
-
-\## Troubleshooting
-
-
-
-\### Virtual Machine Deployment Challenges
-
-
-
-During the implementation of the monitoring solution, several virtual machine deployment issues were encountered.
-
-
-
-\#### Issue 1 - VM Size Unavailable
-
-
-
-Initial attempts to deploy Azure virtual machines using B-series and D-series VM sizes resulted in deployment errors.
-
-
-
-Example error:
-
-
-
-```
-
-NotAvailableForSubscription
-
-```
-
-
-
-**#### Issue 2 - Insufficient Quota**
-
-
-
-During VM size selection, Azure reported:
-
-
-
-```
-
-Insufficient quota - family limit
-
-Family vCPUs are insufficient to deploy these sizes.
-
-```
-
-
-
-Investigation of Azure Quotas revealed that the subscription had a quota allocation of:
-
-
-
-```
-
-0 of 0 vCPUs
-
-```
-
-
-
-for certain VM families, preventing deployment of those resources.
-
-
-
-\#### Troubleshooting Actions
-
-
-
-The following troubleshooting steps were performed:
-
-
-
-\- Reviewed VM size availability within the selected Azure region.
-
-\- Tested alternative VM families and deployment configurations.
-
-\- Investigated Azure subscription quota limitations.
-
-\- Reviewed Azure Quotas under Microsoft.Compute.
-
-\- Identified VM family restrictions that impacted deployment options.
-
-
-
-\#### Lessons Learned
-
-
-
-This exercise highlighted the importance of validating:
-
-
-
-\- Subscription quotas
-
-\- Regional resource availability
-
-\- VM family restrictions
-
-\- Azure deployment prerequisites
-
-
-
-before implementing production workloads.
-
-
-
-The troubleshooting process provided valuable experience in diagnosing Azure infrastructure deployment issues and understanding subscription-level limitations.
-
-
-
-
-
-**### Issue 3 - Unable to Create Azure Monitor Action Group**
-
-
-
-While configuring Azure Monitor, an error occurred when attempting to create an Action Group.
-
-
-
-\*\*Error encountered:\*\*
-
-
-
-```text
-
-Failed to create action group.
-
-The subscription is not registered to use namespace 'microsoft.insights'.
-
-```
-
-
-
-\#### Investigation
-
-
-
-The error suggested that the Azure subscription was not registered to use the Microsoft.Insights resource provider, which is required for Azure Monitor functionality, including:
-
-
-
-\- Azure Monitor
-
-\- Alert Rules
-
-\- Action Groups
-
-\- Monitoring Notifications
-
-
-
-\#### Resolution
-
-
+Azure reported that the subscription was not registered to use the `Microsoft.Insights` namespace.
 
 The issue was resolved by:
 
-
-
-1\. Navigating to \*\*Resource Providers\*\* within the Azure subscription.
-
-2\. Searching for:
-
-
-
-```text
-
-Microsoft.Insights
-
-```
-
-
-
-3\. Confirming the resource provider registration status.
-
-4\. Registering the provider.
-
-5\. Retrying the Action Group deployment.
-
-
-
-\#### Outcome
-
-
-
-After registering the Microsoft.Insights resource provider, the Action Group was created successfully and email notifications were configured for monitoring alerts.
-
-
-
-\#### Key Learning
-
-
-
-This exercise demonstrated the importance of verifying Azure Resource Provider registration when deploying Azure services in a new subscription.
-
-
-
-It also reinforced the need to:
-
-
-
-\- Review deployment error messages carefully.
-
-\- Validate subscription configuration.
-
-\- Understand service dependencies in Azure.
-
-\- Troubleshoot Azure Monitor deployment issues systematically.
-
-
-## CPU Alert Rule
-
-
-
-An Azure Monitor metric alert was created to monitor CPU utilisation on the BrightPath Solutions virtual machine.
-
-
-
-\### Alert Configuration
-
-
-
-\- Alert rule: `alert-vm-high-cpu`
-
-\- Monitored resource: `vm-brightpath-monitoring01`
-
-\- Signal: Percentage CPU
-
-\- Threshold: Greater than 10%
-
-\- Severity: 3 - Informational
-
-\- Notification method: Azure Monitor Action Group
-
-
-
-The low CPU threshold was selected for testing so that the alert could be triggered and the notification process validated.
-
-## Alert Testing and Validation
-
-
-
-The Azure Monitor alert rule was successfully tested against the virtual machine.
-
-
-
-The alert was configured to monitor the Percentage CPU metric. When the configured threshold was exceeded, Azure Monitor changed the alert condition to Fired and initiated the associated Action Group.
-
-
-
-\### Validation Results
-
-
-
-\- Alert rule successfully evaluated the VM metric
-
-\- CPU threshold was exceeded
-
-\- Alert condition changed to Fired
-
-\- The affected virtual machine was identified
-
-\- The Action Group was activated
-
-\- The monitoring and alerting workflow was successfully validated
-
-
-
-This demonstrated that BrightPath Solutions could proactively detect performance issues affecting its Azure workloads and notify administrators through an automated alerting process.
-
-## Alert Resolution Validation
-
-
-
-After the virtual machine's CPU usage returned below the configured threshold, Azure Monitor automatically changed the alert condition from Fired to Resolved.
-
-
-
-The associated Action Group sent an email confirming that the alert had been resolved.
-
-
-
-\### Resolution Results
-
-
-
-\- CPU usage returned below the 10 percent threshold
-
-\- Azure Monitor automatically resolved the alert
-
-\- The affected virtual machine was identified correctly
-
-\- An email resolution notification was received
-
-\- The complete alert lifecycle was successfully validated
-
-
-
-This demonstrated that the monitoring solution could detect a performance issue, notify administrators, and confirm when the affected resource returned to normal operating conditions.
-
-``
-
-``
-
+1. Opening Resource Providers within the Azure subscription
+2. Locating `Microsoft.Insights`
+3. Registering the resource provider
+4. Retrying the Action Group deployment
+
+After registration, the Action Group was created successfully and email notifications could be configured.
+
+## Skills Demonstrated
+
+- Azure Administration
+- Azure Monitor
+- Virtual Machine monitoring
+- Metric Alert configuration
+- Action Group configuration
+- Email alert notifications
+- Alert testing and validation
+- Azure Resource Provider troubleshooting
+- Azure subscription quota troubleshooting
+- Incident monitoring
+- Technical documentation
+
+## Key Learning Outcomes
+
+This project provided hands-on experience with:
+
+- Monitoring Azure VM performance
+- Creating metric-based Azure Monitor alerts
+- Using Action Groups for administrator notifications
+- Generating test conditions to validate monitoring
+- Understanding Fired and Resolved alert states
+- Troubleshooting Azure Resource Provider registration
+- Troubleshooting VM availability and subscription quota restrictions
+
+## AZ-104 Alignment
+
+This project supports AZ-104 skills relating to:
+
+- Azure Monitor
+- Azure Virtual Machine monitoring
+- Metric alerts
+- Action Groups
+- Azure resource health and monitoring
+- Troubleshooting Azure resource deployments
+
+## Conclusion
+
+This project demonstrates the implementation of an Azure monitoring and alerting solution for BrightPath Solutions.
+
+The completed solution monitored virtual machine CPU utilisation, detected a defined performance condition, triggered an Azure Monitor alert, notified administrators through an Action Group and automatically resolved the alert when the monitored resource returned to normal operating conditions.
