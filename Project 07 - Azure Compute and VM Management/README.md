@@ -114,21 +114,37 @@ The script was stored in a private Azure Blob Storage container and selected dur
 
 After deployment, the extension reported `Provisioning succeeded`, and the generated file was verified inside the Windows VM.
 
-## Screenshots
+## Implementation Evidence
 
-### Managed Data Disk
+### 1. Managed Data Disk
+
+I attached a **32 GiB Standard SSD managed data disk** named `disk-brightpath-appdata01` to the virtual machine.
+
+The disk was then initialised using GPT inside Windows Server, formatted with NTFS and configured as the `E:` drive with the label `AppData`.
 
 ![Managed Data Disk](01-vm-data-disk.png)
 
-### VM Resize
+### 2. VM Resize
+
+I scaled up `vm-brightpath-app01` from **2 vCPUs and 4 GB RAM** to **4 vCPUs and 8 GB RAM**.
+
+This demonstrated vertical scaling by increasing the compute resources available to an existing virtual machine.
 
 ![VM Resize](02-vm-resize.png)
 
-### Custom Script Extension
+### 3. Custom Script Extension
+
+I configured the Azure **Custom Script Extension** to run a PowerShell script on the Windows VM.
+
+The extension successfully completed with a `Provisioning succeeded` status, demonstrating how VM extensions can automate post-deployment configuration.
 
 ![Custom Script Extension](03-custom-script-extension.png)
 
-### Extension Result
+### 4. Automated Configuration Result
+
+After the Custom Script Extension completed, I connected to the VM and verified that the PowerShell script had automatically created `C:\BrightPath\Extension-Test.txt`.
+
+The file contained the expected test message, confirming that the automated configuration had executed successfully.
 
 ![Extension Result](04-extension-result.png)
 
@@ -147,3 +163,32 @@ After deployment, the extension reported `Provisioning succeeded`, and the gener
 - PowerShell Automation
 - Azure Blob Storage
 - Azure Portal Administration
+
+## Key Learning Outcomes
+
+This project provided hands-on experience with:
+
+- Deploying and managing Azure virtual machines
+- Attaching and configuring managed data disks
+- Preparing Azure data disks inside Windows Server
+- Understanding OS, data and temporary disks
+- Scaling a VM vertically by changing its size
+- Understanding scale up/down compared with scale out/in
+- Understanding Availability Zones and Availability Sets
+- Understanding fault domains and update domains
+- Understanding Azure Load Balancer and health probes
+- Using VM Extensions for post-deployment automation
+- Using PowerShell to automate Windows Server configuration
+
+## AZ-104 Alignment
+
+This project supports AZ-104 skills relating to:
+
+- Create and configure Azure virtual machines
+- Configure Azure VM storage
+- Configure VM sizes
+- Configure availability options
+- Configure Virtual Machine Scale Sets
+- Configure Azure Load Balancer
+- Manage Azure VM Extensions
+- Automate virtual machine configuration
