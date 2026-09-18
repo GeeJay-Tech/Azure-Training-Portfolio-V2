@@ -1,18 +1,24 @@
-# Project 2 - Automated Backup System
+# Project 02 - Automated Backup System
+
+## Project Overview
+
+This project was completed as part of my Microsoft Azure Administrator (AZ-104) hands-on training.
+
+The goal was to implement and test an automated Azure Backup solution for a business-critical virtual machine, providing recovery capabilities in the event of data loss or infrastructure failure.
 
 ## Scenario
 
 BrightPath Solutions is a growing IT consultancy that hosts critical business applications on Azure Virtual Machines.
 
-To protect company data and ensure business continuity, BrightPath Solutions requires an automated backup solution that can recover systems from accidental deletion, data corruption, ransomware attacks, or infrastructure failures.
+To protect company data and support business continuity, BrightPath Solutions requires an automated backup solution that can recover systems following accidental deletion, data corruption, ransomware attacks or infrastructure failures.
 
-As a Junior Cloud Administrator, I was tasked with implementing and testing an Azure Backup solution that provides automated protection for business-critical workloads.
+As the Junior Cloud Administrator, I was tasked with implementing and testing an Azure Backup solution that provides automated protection for business-critical workloads.
 
 ## Project Objectives
 
 - Create a Recovery Services Vault
-- Configure Azure VM backups
-- Create a backup policy
+- Configure Azure VM backup
+- Create and apply a backup policy
 - Schedule automatic daily backups
 - Verify backup jobs complete successfully
 - Perform a test restore
@@ -26,64 +32,63 @@ As a Junior Cloud Administrator, I was tasked with implementing and testing an A
 - Azure Backup
 - Azure Monitor
 
-## Skills Demonstrated
+## Implementation
 
-- Azure Administration (AZ-104)
-- Backup and Recovery
-- Business Continuity Planning
-- Recovery Services Vault Management
-- Documentation and Reporting
+### 1. Created the Resource Group
 
-### Deployment Troubleshooting
+A dedicated Azure resource group was created to organise the resources used for the backup solution.
 
-Initial VM deployments using Windows Server 2022 and the Standard_B1s size failed with an InternalOperationError during provisioning.
+![Resource Group Created](01%20Resource%20group%20created.png)
 
-After troubleshooting, the deployment was successfully completed using:
+### 2. Deployed the Azure Virtual Machine
 
-- Windows Server 2019 Datacenter
-- Standard_B1ms VM size
-- UK South region
+An Azure virtual machine was deployed to represent a business-critical BrightPath workload requiring backup protection.
 
-This highlights the importance of validating deployment options and troubleshooting Azure provisioning issues during infrastructure deployments.
+![Virtual Machine Created](02-vm-created.png)
 
-## Backup Solution Design
+### 3. Created the Recovery Services Vault
 
-To meet BrightPath Solutions' business continuity requirements, a Recovery Services Vault was deployed to provide centralized backup management for Azure resources.
+A Recovery Services Vault was deployed to provide centralised management of backup and recovery operations.
 
-The vault will store recovery points and enable backup and restore operations for business-critical virtual machines.
+![Recovery Services Vault](03-recovery-services-vault.png)
 
-## Backup Configuration
+### 4. Enabled VM Backup
 
-A Recovery Services Vault backup policy was created and assigned to the virtual machine.
+Azure Backup was configured for the virtual machine using a backup policy.
 
-Policy Details:
+The configuration provided:
 
 - Daily automated backups
-- Centralized backup management
+- Centralised backup management
 - Recovery point retention
-- Support for restore and recovery operations
+- Restore and recovery capabilities
 
-This configuration ensures that BrightPath Solutions can recover critical systems following operational incidents or data loss events.
+![Backup Enabled](04-backup-enabled.png)
 
-## Backup Validation
+### 5. Validated the Backup
 
-A manual backup was initiated to validate the configuration.
+A manual backup was initiated to verify that the backup configuration was functioning correctly.
 
-Results:
+The validation confirmed:
 
 - Backup policy successfully applied
 - Backup job completed successfully
 - Recovery point created
 - VM protection verified
 
-This confirmed that the backup solution was functioning as expected and capable of creating recovery points for business-critical workloads.
-``
+![Successful Backup Job](05-first-backup-successful.png)
+
+### 6. Tested Restore Capability
+
+A restore operation was tested to validate that the protected workload could be recovered using an available recovery point.
+
+![Restore Test](06-restore-test.png)
 
 ## Architecture
 
-The solution was designed to provide automated protection for a business-critical Azure virtual machine.
+The solution was designed to provide automated protection for an Azure virtual machine.
 
-Components:
+### Components
 
 - Azure Resource Group
 - Azure Virtual Machine
@@ -92,45 +97,64 @@ Components:
 - Recovery Points
 - Restore Operations
 
-Workflow:
+### Workflow
 
 1. Azure VM deployed
 2. Recovery Services Vault created
 3. Backup policy configured
 4. Daily backups scheduled
 5. Recovery points generated
-6. Restore operation tested successfully
+6. Restore operation tested
 
-## Deployment Evidence
+## Deployment Troubleshooting
 
-### Resource Group Created
-!creenshots/01-resource-group-created.png
+Initial VM deployments using **Windows Server 2022** and the **Standard_B1s** size failed with an `InternalOperationError` during provisioning.
 
-### Virtual Machine Deployed
-screenshots/02-vm-created.png
+After troubleshooting, the deployment was successfully completed using:
 
-### Recovery Services Vault
-![Recovery Services Vaultervices-vault.png
+- Windows Server 2019 Datacenter
+- Standard_B1ms VM size
+- UK South region
 
-### Backup Enabled
-![Backupots/04-backup-enabled.png
+This provided practical experience troubleshooting Azure VM provisioning issues and adapting deployment options when the original configuration failed.
 
-### Successful Backup Job
-![Backup Job](screenshots/05successful.png
+## Skills Demonstrated
 
-### Restore Validation
-screenshots/06-restore-test.png
-``
-
-## Key Outcomes
-
-This project demonstrated:
-
+- Azure Administration
+- Azure Virtual Machine deployment
 - Azure Backup configuration
 - Recovery Services Vault management
-- Backup policy creation
+- Backup policy configuration
 - Recovery point management
-- Disaster recovery testing
-- Azure administration aligned to AZ-104 objectives
+- Backup and restore validation
+- Business continuity concepts
+- Azure deployment troubleshooting
+- Technical documentation
 
-The solution successfully protected and restored a business-critical virtual machine for the fictional company BrightPath Solutions.
+## Key Learning Outcomes
+
+This project provided hands-on experience with:
+
+- Protecting Azure VMs using Azure Backup
+- Managing backups through a Recovery Services Vault
+- Applying backup policies to Azure workloads
+- Verifying successful backup jobs and recovery points
+- Testing restore operations
+- Troubleshooting Azure VM deployment failures
+
+## AZ-104 Alignment
+
+This project supports AZ-104 skills relating to:
+
+- Azure Virtual Machines
+- Azure Backup
+- Recovery Services Vaults
+- Backup policies
+- Backup and restore operations
+- Business continuity and workload protection
+
+## Conclusion
+
+This project demonstrates the implementation and validation of an automated Azure Backup solution for BrightPath Solutions.
+
+The solution successfully protected the Azure virtual machine, created recovery points and demonstrated the ability to restore the protected workload when required.
