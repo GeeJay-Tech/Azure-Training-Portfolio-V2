@@ -130,6 +130,14 @@ Deployed and managed an Azure Windows virtual machine for BrightPath Solutions, 
 
 ---
 
+### Project 08 - Azure App Service and Application Deployment
+
+Deployed and administered a customer-facing web application using Azure App Service, including application configuration, monitoring, scaling concepts, deployment strategies, and hands-on troubleshooting.
+
+**Skills:** Azure App Service, App Service Plans, Python Application Deployment, Environment Variables, Azure Monitor, Metrics, Log Stream, Scaling, Deployment Slots, Quota Management, Troubleshooting
+
+[View Project](./Project%2008%20-%20Azure%20App%20Service%20and%20Application%20Deployment)
+
 ## Technologies Used
 
 - Microsoft Azure
@@ -155,6 +163,8 @@ Deployed and managed an Azure Windows virtual machine for BrightPath Solutions, 
 - Azure VM Extensions
 - PowerShell
 - GitHub
+
+---
 
 ## Certification Alignment
 
