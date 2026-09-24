@@ -134,9 +134,42 @@ Deployed and managed an Azure Windows virtual machine for BrightPath Solutions, 
 
 Deployed and administered a customer-facing web application using Azure App Service, including application configuration, monitoring, scaling concepts, deployment strategies, and hands-on troubleshooting.
 
-**Skills:** Azure App Service, App Service Plans, Python Application Deployment, Environment Variables, Azure Monitor, Metrics, Log Stream, Scaling, Deployment Slots, Quota Management, Troubleshooting
+**Skills Demonstrated**
+- Azure App Service
+- App Service Plans
+- Python Application Deployment
+- Application Configuration and Environment Variables
+- Azure Monitor and Metrics
+- Azure Log Stream
+- App Service Scaling Concepts
+- Deployment Slots
+- Azure Quota Management
+- Application Troubleshooting
 
-[View Project](./Project%2008%20-%20Azure%20App%20Service%20and%20Application%20Deployment)
+📁 [View Project 08 - Azure App Service and Application Deployment](./Project%2008%20-%20Azure%20App%20Service%20and%20Application%20Deployment)
+
+---
+
+### Project 09 - Azure Network Security and Private Connectivity
+
+Secured an Azure Storage account using Private Endpoint and Private DNS, disabled public network access, and validated private HTTPS connectivity from an internal Azure VM.
+
+**Skills Demonstrated**
+- Azure Virtual Networks (VNets)
+- Azure Subnets and CIDR Addressing
+- Azure Private Endpoints
+- Azure Private Link
+- Azure Private DNS
+- Azure Storage Networking
+- Public Network Access Controls
+- DNS Resolution
+- PowerShell Connectivity Testing
+- TCP/IP and HTTPS Connectivity
+- Network Troubleshooting
+
+📁 [View Project 09 - Azure Network Security and Private Connectivity](./Project%2009%20-%20Azure%20Network%20Security%20and%20Private%20Connectivity)
+
+---
 
 ## Technologies Used
 
@@ -152,6 +185,11 @@ Deployed and administered a customer-facing web application using Azure App Serv
 - Azure Files
 - Azure Backup
 - Recovery Services Vault
+- Azure App Service
+- App Service Plans
+- Azure Private Endpoints
+- Azure Private Link
+- Azure Private DNS
 - Azure Monitor
 - Azure Alerts
 - Azure Action Groups
