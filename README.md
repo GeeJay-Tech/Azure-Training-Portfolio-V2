@@ -1,3 +1,4 @@
+
 # Azure Administration Portfolio
 
 This repository contains hands-on Azure projects completed to demonstrate Azure Administration (AZ-104) skills and practical cloud engineering experience.
@@ -171,15 +172,43 @@ Secured an Azure Storage account using Private Endpoint and Private DNS, disable
 
 ---
 
+### Project 10 - Azure Load Balancing and High Availability
+
+Deployed two Ubuntu web servers across separate Azure Availability Zones for BrightPath Solutions, configured an Azure Standard Load Balancer to distribute HTTP traffic, and successfully tested application availability during a simulated backend server failure.
+
+**Skills Demonstrated**
+- Azure Virtual Machine Deployment
+- Azure Availability Zones
+- Azure Virtual Networking
+- Azure Standard Load Balancer
+- Frontend IP Configuration
+- Backend Pool Management
+- HTTP Health Probes
+- TCP Load-Balancing Rules
+- Ubuntu Linux Administration
+- Nginx Web Server Configuration
+- SSH Administration
+- HTTP Connectivity Testing
+- High Availability and Failover Testing
+- Azure Infrastructure Troubleshooting
+
+📁 [View Project 10 - Azure Load Balancing and High Availability](./Project-10-Azure-Load-Balancing-and-High-Availability)
+
+---
+
 ## Technologies Used
 
 - Microsoft Azure
 - Azure Virtual Machines
+- Azure Availability Zones
 - Azure Managed Disks
 - Azure Virtual Networks (VNets)
 - Azure Network Security Groups (NSGs)
 - VNet Peering
 - Azure Load Balancer
+- Azure Load Balancer Backend Pools
+- Azure Health Probes
+- Azure Public IP Addresses
 - Azure Storage
 - Azure Blob Storage
 - Azure Files
@@ -199,6 +228,9 @@ Secured an Azure Storage account using Private Endpoint and Private DNS, disable
 - Azure Policy
 - Azure Resource Locks
 - Azure VM Extensions
+- Ubuntu Linux
+- Nginx Web Server
+- SSH
 - PowerShell
 - GitHub
 
